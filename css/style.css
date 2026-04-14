@@ -1,179 +1,294 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* =============================================
+   FONTS IMPORT
+   ============================================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
+/* =============================================
+   CSS VARIABLES - Rang va asosiy qiymatlar
+   Bir joyda saqlash o'zgartirishlarni osonlashtiradi
+   ============================================= */
+:root {
+    --bg-primary: #0E0E0D;
+    --bg-secondary: #191919;
+    --bg-nav: #222222;
+    --text-primary: #fff;
+    --text-secondary: #C5C5C5;
+    --accent-orange: #FF8660;
+    --accent-purple: #9A33FF;
+    --accent-red: #D5491D;
+    --accent-blue: #5BADFF;
+    --accent-blue-dark: #1373D1;
+    --font-main: 'Poppins', sans-serif;
+    --container-width: calc(100% - 630px);
+    --border-radius: 8px;
+    --transition: 0.3s ease;
+}
+
+/* =============================================
+   RESET - Brauzer default stillarini tozalash
+   ============================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
 }
 
 a {
     text-decoration: none;
+    transition: color var(--transition);
 }
 
 ul {
     list-style: none;
 }
 
-.container {
-    margin: 0 315px;
-    padding: 0;
-
-
+img {
+    max-width: 100%;
 }
 
 body {
-    background-color: #0E0E0D;
-
+    background-color: var(--bg-primary);
+    font-family: var(--font-main);
+    color: var(--text-primary);
+    line-height: 1.6;
 }
 
-h1 {
-    font-size: 55px;
-    color: #fff;
-    font-family: "Poppins", sans-serif;
+
+/* =============================================
+   LAYOUT - Container va asosiy wrapperlar
+   ============================================= */
+.container {
+    max-width: var(--container-width);
+    margin: 0 315px;
+    padding: 0;
 }
 
-h3 {
-    font-weight: semi-bold;
-    opacity: 0.8;
-    font-size: 20px;
-    color: #fff;
-    font-family: "Poppins", sans-serif;
-}
+/* =============================================
+   NAVIGATION - Navigatsiya bar stillari
+   ============================================= */
 
 nav {
-    background-color: #222222;
+    background-color: var(--bg-nav);
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1px 0;
 }
+
 
 .navigation {
     display: flex;
     gap: 70px;
 }
 
-.navigation li a {
-    color: aliceblue;
+.navigation a {
+    color: var(--text-primary);
+    font-weight: 500;
+    position: relative;
 }
 
+.navigation a:hover {
+    color: var(--accent-orange);
+}
+
+/* =============================================
+   HERO SECTION - Bosh sahifa hero qismi
+   ============================================= */
 .hero {
     text-align: center;
+    padding: 60px 0 88px;
 }
 
-.avatar {
-    margin: 97px 0 41px 0;
+.hero_title {
+    font-size: 55px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 30px 0 40px;
 }
 
 .about_span {
-    background: linear-gradient(to right, #FF8660 0%, #9A33FF 100%);
+    background: linear-gradient(to right, var(--accent-orange), var(--accent-purple));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
-
 }
 
 .hero_p {
-    color: #C5C5C5;
-    font-family: "Poppins", sans-serif;
+    color: var(--text-secondary);
     font-size: 18px;
-    opacity: 0.8;
-    margin: 40px 0;
+    font-weight: 300;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
+/* =============================================
+   BUTTONS - Tugmalar guruhi
+   ============================================= */
 .hero_btn {
-    border-radius: 8px;
-    margin: 55px 0 88px 0;
-}
-
-.hero_btn a {
-    border-radius: 30px;
-    padding: 16px 30px;
-}
-
-.hero_btn a:nth-child(1) {
-    color: #0E0E0D;
-    background-color: #fff;
-}
-
-.hero_btn a:nth-child(2) {
-    color: #fff;
-    background-color: #0E0E0D;
-    border: 2px solid #fff;
-}
-
-.experience_imgs {
-    margin: 48px 0 99px 0;
     display: flex;
-    align-items: center;
     justify-content: center;
+    gap: 20px;
+    margin: 55px 0;
+}
+
+.hero_btn .btn {
+    padding: 16px 30px;
+    border-radius: 30px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.hero_btn .btn-primary {
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    border: 2px solid var(--text-primary);
+}
+
+.hero_btn .btn-primary:hover {
+    background-color: transparent;
+    color: var(--text-primary);
+}
+
+.hero_btn .btn-secondary {
+    background-color: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--text-primary);
+}
+
+.hero_btn .btn-secondary:hover {
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+}
+
+/* =============================================
+   EXPERIENCE ICONS - Texnologiya ikonkalari
+   ============================================= */
+.experience_imgs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 60px;
+    margin-top: 48px;
+}
+
+.experience_img {
+    transition: transform var(--transition);
+}
+
+.experience_img:hover {
+    transform: scale(1.1);
+}
+
+/* =============================================
+   SECTION TITLES - Bo'lim sarlavhalari
+   ============================================= */
+.section-title {
+    font-size: 36px;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 27px;
 }
 
 .projects_title {
-    font-size: 36px;
-    background: linear-gradient(to right, #FF8660 0%, #D5491D 100%);
+    background: linear-gradient(to right, var(--accent-orange), var(--accent-red));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
-
+    margin-bottom: 25px;
 }
 
+.experience_title {
+    background: linear-gradient(to right, var(--accent-blue), var(--accent-blue-dark));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+
+/* =============================================
+   PROJECTS SECTION - Loyihalar qismi
+   ============================================= */
 .project_cards {
-    margin: 27px 0 96px 0;
     display: flex;
     justify-content: center;
-    align-items: center;
     gap: 30px;
+    margin-bottom: 96px;
+}
+
+.project_card {
+    border-radius: 20px;
+    background-color: var(--bg-secondary);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.project_card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.project_card_img {
+    width: 100%;
+    object-fit: cover;
 }
 
 .project_card_description {
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
     padding: 14px 23px;
-    background-color: #191919;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 }
 
 .card_description {
     font-size: 10px;
-    font-weight: extra-bold;
-    color: #C5C5C5;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .card_title {
     font-size: 19px;
-    font-weight: extra-bold;
-    color: #C5C5C5;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-top: 5px;
 }
 
-
-.experience_title {
-    font-size: 36px;
-    background: linear-gradient(to right, #5BADFF 0%, #1373D1 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-align: center;
+.card_arrov {
+    transition: transform var(--transition);
 }
 
+.project_card:hover .card_arrov {
+    transform: translateX(5px);
+}
+
+/* =============================================
+   EXPERIENCE SECTION - Tajriba qismi
+   ============================================= */
 .experience_content {
-    margin: 57px 0 107px 0;
+    margin: 57px 0 107px;
 }
 
-.experience_content_ul li:nth-child(2) {
-    margin: 50px 0;
+.experience_content_ul>li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
 
+.experience_content_ul>li:last-child {
+    border-bottom: none;
+}
+
+.experience_content_ul>li:not(:first-child) {
+    margin-top: 30px;
 }
 
 .corparition {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+    /* flex-wrap: wrap; */
+    /* gap: 15px; */
 }
 
 .corparition_date {
@@ -182,55 +297,129 @@ nav {
     gap: 20px;
 }
 
+.corparition_logo {
+    width: 40px;
+    height: 40px;
+}
+
 .experience_h4 {
     font-size: 19px;
-    font-weight: extra-bold;
-    color: #fff;
+    font-weight: 600;
+    color: var(--text-primary);
 }
 
 .experience_p {
-    color: #C5C5C5;
-    font-family: "Poppins", sans-serif;
-    font-size: 12px;
-    opacity: 0.8;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.8;
 }
 
-.exP {
-    margin-top: 20px;
-}
-
+/* =============================================
+   FOOTER - Footer qismi
+   ============================================= */
 footer {
-    background-color: #191919;
-
+    background-color: var(--bg-secondary);
 }
-.footer_content{
-    padding: 82px 0 100px 0;
 
+.footer_content {
+    padding: 82px 0 100px;
 }
-.footer_content_p {
-    margin: 34px 0 22px 0;
-    color: #C5C5C5;
-    font-family: "Poppins", sans-serif;
-    font-size: 12px;
+
+.footer_content_title {
+    font-size: 20px;
+    font-weight: 600;
     opacity: 0.8;
+}
 
+.footer_content_p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.8;
+    margin: 34px 0 22px;
+    max-width: 600px;
 }
 
 .email_link {
     display: flex;
-    
-    gap: 5px;
+    align-items: center;
+    gap: 10px;
 }
-.email_link a{
-    color: #C5C5C5;
-    font-family: "Poppins", sans-serif;
-    font-size: 12px;
-    opacity: 0.8;
+
+.email_link a {
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.email_link a:hover {
+    color: var(--accent-orange);
 }
 
 .smm {
-    margin-top: 45px;
     display: flex;
-    align-items: center;
     gap: 27px;
+    margin-top: 45px;
+}
+
+.smm_icon {
+    transition: transform var(--transition), opacity var(--transition);
+}
+
+.smm_icon:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+/* =============================================
+   RESPONSIVE - Mobil qurilmalar uchun
+   ============================================= */
+@media (max-width: 1024px) {
+    .hero_title {
+        font-size: 42px;
+    }
+
+    .experience_imgs {
+        gap: 40px;
+        flex-wrap: wrap;
+    }
+
+    .project_cards {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .navigation {
+        gap: 30px;
+    }
+
+    .hero_title {
+        font-size: 32px;
+    }
+
+    .hero_p {
+        font-size: 16px;
+    }
+
+    .hero_btn {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .experience_imgs {
+        gap: 30px;
+    }
+
+    .corparition {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
