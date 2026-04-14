@@ -432,7 +432,9 @@ footer {
     .container {
         padding: 0 30px;
     }
-
+section {
+    scroll-margin-top: 160px;
+}
     nav {
         height: 150px;
     }
